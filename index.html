@@ -3,100 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divisionary SMP</title>
+    <title>Gaming Website</title>
     <style>
         body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #5f5f8u, #d1a700);
+            color: white;
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #fff;
+            padding: 0;
+            overflow-x: hidden;
         }
-        header {
-            background-color: #1a1a1a;
-            padding: 20px;
+        h1 {
+            font-size: 4em;
             text-align: center;
+            animation: neonGlow 1.5s ease-in-out infinite;
         }
-        header nav a {
-            color: gold;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .hero {
-            background-color: #2a2a2a;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        .hero h1 {
-            font-size: 2.5em;
-            color: purple;
-        }
-        .current-king {
-            background-color: #3a3a3a;
-            padding: 20px;
-            text-align: center;
-            margin: 20px 0;
-        }
-        .leaderboard, .server-info, .community {
-            padding: 20px;
-            background-color: #222;
-            margin: 20px;
-        }
-        footer {
-            background-color: #1a1a1a;
-            text-align: center;
-            padding: 15px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-        @media (max-width: 600px) {
-            .hero h1 {
-                font-size: 1.8em;
+        @keyframes neonGlow {
+            0%, 100% {
+                text-shadow: 0 0 5px #d1a700, 0 0 10px #d1a700, 0 0 20px #5f5f8u;
+            }
+            50% {
+                text-shadow: 0 0 20px #d1a700, 0 0 30px #5f5f8u, 0 0 40px #d1a700;
             }
         }
+        .leaderboard {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            margin: 20px;
+            text-align: center;
+        }
+        .current-king {
+            font-size: 2em;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .social-links {
+            text-align: center;
+            margin: 20px;
+        }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for navigation
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    target.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            // Copy to clipboard functionality
+            const copyBtn = document.querySelector('.copy-btn');
+            copyBtn.addEventListener('click', function() {
+                const serverDetails = document.querySelector('.server-details');
+                navigator.clipboard.writeText(serverDetails.textContent).then(() => {
+                    alert('Server details copied to clipboard!');
+                });
+            });
+        });
+    </script>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Leaderboard</a>
-            <a href="#">Server Info</a>
-            <a href="#">How to Join</a>
-            <a href="#">Community</a>
-        </nav>
-    </header>
-    <section class="hero">
-        <h1>Kill the King, Become the King</h1>
-    </section>
-    <section class="current-king">
-        <h2>Current King: King eesarolo</h2>
-    </section>
-    <section class="leaderboard">
-        <h2>Top Players Leaderboard</h2>
+    <h1>Welcome to the Neon Gaming Hub</h1>
+    <div class="leaderboard">
+        <h2>Leaderboard</h2>
         <ul>
-            <li>1. PlayerOne - 1000 points</li>
-            <li>2. PlayerTwo - 900 points</li>
-            <li>3. PlayerThree - 850 points</li>
+            <li>User1: 1000 Points</li>
+            <li>User2: 900 Points</li>
+            <li>User3: 800 Points</li>
         </ul>
-    </section>
-    <section class="server-info">
-        <h2>Server Information</h2>
-        <p>Server IP: play.divisionary.smp.com</p>
-        <p>Version: 1.17</p>
-        <p>Join the fun!</p>
-    </section>
-    <section class="community">
-        <h2>Community Highlights</h2>
-        <p>Join our <a href="https://discord.gg/yourdiscordlink" style="color: gold;">Discord</a> for updates!</p>
-    </section>
-    <footer>
-        <p>Follow us on social media:</p>
-        <p>
-            <a href="#" style="color: gold;">Twitter</a> |
-            <a href="#" style="color: gold;">Instagram</a>
-        </p>
-    </footer>
+    </div>
+    <div class="current-king">
+        <h2>👑 Current King: User1</h2>
+    </div>
+    <div class="server-details">
+        <p>Server IP: 123.456.789.0</p>
+        <button class="copy-btn">Copy Server Details</button>
+    </div>
+    <div class="social-links">
+        <h3>Connect with Us</h3>
+        <a href="#">Facebook</a> |
+        <a href="#">Twitter</a> |
+        <a href="#">Discord</a>
+    </div>
+    <script>
+        // Smooth scrolling for navigation
+    </script>
 </body>
 </html>
